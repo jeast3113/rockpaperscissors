@@ -20,3 +20,10 @@ function getComputerChoice() {
 
 // call the function
 getComputerChoice();
+
+// Create a function that plays a single round of rock, paper, scissors.
+// Steps to take:
+// 1. Function has 2 parameters i.e. function func(param1, param2)
+// 2. The parameters should be the player's choice and the computer's choice
+// 3. Return a string that determines the outcome of the play; i.e. "You lose! Paper beats Rock!"
+//    Determining the outcome of a round suggests an if - else if statement for all outcomes
