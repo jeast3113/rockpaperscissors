@@ -10,10 +10,13 @@ function getComputerChoice() {
     // create a randomizer algorithm with the choice variable - create 
     // another variable to hold the random choice - i.e. let randomChoice = 
     // revisit the Math.random method...
-    let randomChoice = Math.random() * choices.length;
+    // problem solving moment - How do you get a choice from the choices array?
+    // problem solving moment - How do you get a rounded number to act as an index of the choices array?
+    // problem solving moment - Anything multipled by zero returns zero...
+    let randomChoice = choices[Math.floor(Math.random() * choices.length)];
     console.log(randomChoice);
 
 }
 
-// call the function to console.log the variable
+// call the function
 getComputerChoice();
