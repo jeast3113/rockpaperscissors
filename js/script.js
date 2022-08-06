@@ -18,9 +18,6 @@ function getComputerChoice() {
 
 }
 
-// call the function
-getComputerChoice();
-
 // Create a function that plays a single round of rock, paper, scissors.
 // Steps to take:
 // 1. Function has 2 parameters i.e. function func(param1, param2)
@@ -42,10 +39,12 @@ function playRound(playerSelection, computerSelection) {
         return "You win! Scissors beats Paper!";
     } else if(playerSelection === 'paper' && computerSelection === 'scissors') {
         return "You lose! Scissors beats Paper!";
+    } else {
+        return "Sorry, please type rock, paper, or scissors!";
     }
 }
 
 //test out the 'playRound' function 
-let playerSelection = 'rock';
-let computerSelection = getComputerChoice();
+const playerSelection = prompt("Rock, Paper, or Scissors...?:").toLowerCase();
+const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
