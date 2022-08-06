@@ -52,16 +52,13 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-//test out the 'playRound' function 
 
-// console.log(playRound(playerSelection, computerSelection));
 
 // Create a function that plays 5 rounds, keeps score between the player and the computer
 // and determines a winner at the end of the game
 function game() {
-    //need a loop for 5 rounds
     for(let i = 1; i <= 5; i++) {
-        const playerSelection = "rock";
+        const playerSelection = prompt("Rock, Paper, Scissors...?").toLowerCase();
         const computerSelection = getComputerChoice();
         console.log(playRound(playerSelection, computerSelection));
     }
