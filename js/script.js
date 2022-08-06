@@ -14,7 +14,7 @@ function getComputerChoice() {
     // problem solving moment - How do you get a rounded number to act as an index of the choices array?
     // problem solving moment - Anything multipled by zero returns zero...
     let randomChoice = choices[Math.floor(Math.random() * choices.length)];
-    console.log(randomChoice);
+    return randomChoice;
 
 }
 
@@ -29,20 +29,23 @@ getComputerChoice();
 //    Determining the outcome of a round suggests an if - else if statement for all outcomes
 function playRound(playerSelection, computerSelection) {
     if((playerSelection === 'rock' && computerSelection === 'rock') || (playerSelection === 'paper' && computerSelection === 'paper') || playerSelection === 'scissors' && computerSelection === 'scissors' ) {
-        return `It's a tie!`;
+        return "It's a tie!";
     } else if(playerSelection === 'rock' && computerSelection === 'scissors') {
-        return `You win! Rock beats Scissors!`;
+        return "You win! Rock beats Scissors!";
     } else if(playerSelection === 'scissors' && computerSelection === 'rock') {
-        return `You lose! Rock beats Scissors!`;
+        return "You lose! Rock beats Scissors!";
     } else if(playerSelection === 'paper' && computerSelection === 'rock') {
-        return `You win! Paper beats Rock!`;
+        return "You win! Paper beats Rock!";
     } else if(playerSelection === 'rock' && computerSelection === 'paper') {
-        return `You lose! Paper beats Rock!`;
+        return "You lose! Paper beats Rock!";
     } else if(playerSelection === 'scissors' && computerSelection === 'paper') {
-        return `You win! Scissors beats Paper!`;
+        return "You win! Scissors beats Paper!";
     } else if(playerSelection === 'paper' && computerSelection === 'scissors') {
-        return `You lose! Scissors beats Paper!`;
+        return "You lose! Scissors beats Paper!";
     }
 }
 
 //test out the 'playRound' function 
+let playerSelection = 'rock';
+let computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
