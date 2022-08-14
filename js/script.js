@@ -55,16 +55,18 @@ function playRound(playerSelection, computerSelection) {
 // Create a function that plays 5 rounds, keeps score between the player and the computer
 // and determines a winner at the end of the game
 function game() {
-        const playerSelection = '';
-        const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
-    if(playerScore > cpuScore) {
-        return `Player Wins ${playerScore} to ${cpuScore}!`;
-    } else if(playerScore < cpuScore){
-        return `Computer Wins ${cpuScore} to ${playerScore}`;
-    } else {
-        return `It's a tie! ${playerScore} to ${cpuScore}`;
-    }
+    const buttons = document.querySelectorAll('button');
+    console.log(buttons);
+    const playerSelection = '';
+    const computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
+    // if(playerScore > cpuScore) {
+    //     return `Player Wins ${playerScore} to ${cpuScore}!`;
+    // } else if(playerScore < cpuScore){
+    //     return `Computer Wins ${cpuScore} to ${playerScore}`;
+    // } else {
+    //     return `It's a tie! ${playerScore} to ${cpuScore}`;
+    // }
 }
 
 console.log(game());
