@@ -56,7 +56,9 @@ function playRound(playerSelection, computerSelection) {
 // and determines a winner at the end of the game
 function game() {
     const buttons = document.querySelectorAll('button');
-    console.log(buttons);
+    buttons.forEach((button) => {
+        console.log(button.innerText);
+    });
     const playerSelection = '';
     const computerSelection = getComputerChoice();
     console.log(playRound(playerSelection, computerSelection));
