@@ -47,8 +47,6 @@ function playRound(playerSelection, computerSelection) {
     } else if(playerSelection === 'paper' && computerSelection === 'scissors') {
         cpuScore+=1;
         return "You lose! Scissors beats Paper! Score: " + playerScore + " to " + cpuScore;
-    } else {
-        return "Sorry, please type rock, paper, or scissors!";
     }
 }
 
@@ -57,7 +55,7 @@ function playRound(playerSelection, computerSelection) {
 // Create a function that plays 5 rounds, keeps score between the player and the computer
 // and determines a winner at the end of the game
 function game() {
-        const playerSelection = prompt("Rock, Paper, Scissors...?").toLowerCase();
+        const playerSelection = '';
         const computerSelection = getComputerChoice();
         console.log(playRound(playerSelection, computerSelection));
     if(playerScore > cpuScore) {
