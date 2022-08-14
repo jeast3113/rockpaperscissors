@@ -57,11 +57,9 @@ function playRound(playerSelection, computerSelection) {
 // Create a function that plays 5 rounds, keeps score between the player and the computer
 // and determines a winner at the end of the game
 function game() {
-    for(let i = 1; i <= 5; i++) {
         const playerSelection = prompt("Rock, Paper, Scissors...?").toLowerCase();
         const computerSelection = getComputerChoice();
         console.log(playRound(playerSelection, computerSelection));
-    }
     if(playerScore > cpuScore) {
         return `Player Wins ${playerScore} to ${cpuScore}!`;
     } else if(playerScore < cpuScore){
