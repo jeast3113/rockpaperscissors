@@ -21,6 +21,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 18%;
 }
 
 .btn {
@@ -35,6 +36,8 @@ body {
 .results-container {
     display: flex;
     justify-content: center;
+    font-size: 2.1em;
+    margin-top: 10px;
 }
 
 .foot-container {
