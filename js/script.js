@@ -2,7 +2,8 @@
 let playerScore = 0;
 let cpuScore = 0;
 let playerSelection;
-let computerSelection = getComputerChoice();
+let buttons = document.querySelectorAll('button');
+
 
 
 function getComputerChoice() {
@@ -39,7 +40,13 @@ function playRound(playerSelection, computerSelection) {
 // Create a function that plays 5 rounds, keeps score between the player and the computer
 // and determines a winner at the end of the game
 function game() {
-
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            playerSelection = button.textContent;
+            computerSelection = getComputerChoice();
+            console.log(playRound(playerSelection, computerSelection));
+        });
+    });
     // if(playerScore > cpuScore) {
     //     return `Player Wins ${playerScore} to ${cpuScore}!`;
     // } else if(playerScore < cpuScore){
