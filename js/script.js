@@ -2,8 +2,9 @@
 let playerScore = 0;
 let cpuScore = 0;
 let playerSelection;
-let buttons = document.querySelectorAll('button');
-let div = document.querySelector('div');
+let buttons = document.querySelectorAll('.btn');
+let btnContainerDiv = document.querySelector('.button-container');
+let resultsContainerDiv = document.querySelector('.results-container')
 let p = document.createElement('p');
 
 
@@ -17,32 +18,32 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {  
     if((playerSelection === 'rock' && computerSelection === 'rock') || (playerSelection === 'paper' && computerSelection === 'paper') || playerSelection === 'scissors' && computerSelection === 'scissors' ) {
-        p.textContent = `Player: ${playerScore} - Computer: ${cpuScore}`
-        div.appendChild(p);
+        p.textContent = `Player: ${playerScore} | Computer: ${cpuScore}`
+        resultsContainerDiv.appendChild(p);
     } else if(playerSelection === 'rock' && computerSelection === 'scissors') {
         playerScore+=1;
-        p.textContent = `Player: ${playerScore} - Computer: ${cpuScore}`
-        div.appendChild(p);
+        p.textContent = `Player: ${playerScore} | Computer: ${cpuScore}`
+        resultsContainerDiv.appendChild(p);
     } else if(playerSelection === 'scissors' && computerSelection === 'rock') {
         cpuScore+=1;
-        p.textContent = `Player: ${playerScore} - Computer: ${cpuScore}`
-        div.appendChild(p);
+        p.textContent = `Player: ${playerScore} | Computer: ${cpuScore}`
+        resultsContainerDiv.appendChild(p);
     } else if(playerSelection === 'paper' && computerSelection === 'rock') {
         playerScore+=1;
-        p.textContent = `Player: ${playerScore} - Computer: ${cpuScore}`
-        div.appendChild(p);
+        p.textContent = `Player: ${playerScore} | Computer: ${cpuScore}`
+        resultsContainerDiv.appendChild(p);
     } else if(playerSelection === 'rock' && computerSelection === 'paper') {
         cpuScore+=1;
-        p.textContent = `Player: ${playerScore} - Computer: ${cpuScore}`
-        div.appendChild(p);
+        p.textContent = `Player: ${playerScore} | Computer: ${cpuScore}`
+        resultsContainerDiv.appendChild(p);
     } else if(playerSelection === 'scissors' && computerSelection === 'paper') {
         playerScore+=1;
-        p.textContent = `Player: ${playerScore} - Computer: ${cpuScore}`
-        div.appendChild(p);
+        p.textContent = `Player: ${playerScore} | Computer: ${cpuScore}`
+        resultsContainerDiv.appendChild(p);
     } else if(playerSelection === 'paper' && computerSelection === 'scissors') {
         cpuScore+=1;
-        p.textContent = `Player: ${playerScore} - Computer: ${cpuScore}`
-        div.appendChild(p);
+        p.textContent = `Player: ${playerScore} | Computer: ${cpuScore}`
+        resultsContainerDiv.appendChild(p);
     }
 }
 
@@ -56,10 +57,10 @@ function game() {
             playRound(playerSelection, computerSelection);
             if(playerScore === 5) {
                 p.textContent = `Player Wins ${playerScore} to ${cpuScore}!`;
-                div.appendChild(p);
+                resultsContainerDiv.appendChild(p);
             } else if(cpuScore === 5){
                 p.textContent = `Computer Wins ${cpuScore} to ${playerScore}`;
-                div.appendChild(p);
+                resultsContainerDiv.appendChild(p);
             }
         });
     });

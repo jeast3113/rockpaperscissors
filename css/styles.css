@@ -12,13 +12,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 35%;
 }
 
 .btn {
+    width: 10%; 
     padding: 12px;
     margin: 15px;
     background-color: inherit;
     border: 2px solid black;
+}
+
+.results-container {
+    display: flex;
+    justify-content: center;
 }
 
