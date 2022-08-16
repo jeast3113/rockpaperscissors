@@ -8,7 +8,11 @@ let resultsContainerDiv = document.querySelector('.results-container')
 let scorePara = document.createElement('p');
 let winPara = document.createElement('p');
 let finalResultPara = document.createElement('p');
-let playGameBtn = document.createElement('button')
+let playGameBtn = document.createElement('button');
+
+let playAgainBtn = document.createElement('button');
+    playAgainBtn.textContent = "Play Again?";
+    playAgainBtn.classList.add('btn');
 
 function beforeGameStart() {
     // create a function hides the game buttons and
@@ -94,14 +98,24 @@ function game() {
                 winPara.style.display = "none";
                 scorePara.style.display = "none";
                 finalResultPara.textContent = `Player Wins ${playerScore} to ${cpuScore}!`;
-                // resultsContainerDiv.removeChild(scorePara);
                 resultsContainerDiv.appendChild(finalResultPara);
+                resultsContainerDiv.appendChild(playAgainBtn);
+                playAgainBtn.addEventListener('click', () => {
+                    finalResultPara.style.display = "none";
+                    playAgainBtn.style.display = "none";
+                    window.location.reload();
+                });
             } else if(cpuScore === 5){
                 winPara.style.display = "none";
                 scorePara.style.display = "none";
                 finalResultPara.textContent = `Computer Wins ${cpuScore} to ${playerScore}`;
-                // resultsContainerDiv.removeChild(scorePara);
                 resultsContainerDiv.appendChild(finalResultPara);
+                resultsContainerDiv.appendChild(playAgainBtn);
+                playAgainBtn.addEventListener('click', () => {
+                    finalResultPara.style.display = "none";
+                    playAgainBtn.style.display = "none";
+                    window.location.reload();
+                });
             }
         });
     });
