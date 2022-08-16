@@ -6,6 +6,17 @@
 body {
     display: flex;
     flex-direction: column;
+    font-family: "Rubik Maze", Helvetica, sans-serif;
+}
+
+.title-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 23, 85);
+    color: rgb(234, 215, 215);
+    text-transform: uppercase;
+    padding: 10px;
 }
 
 .button-container {
@@ -15,11 +26,12 @@ body {
 }
 
 .btn {
-    width: 10%; 
+    width: 13%; 
     padding: 12px;
     margin: 15px;
     background-color: inherit;
     border: 2px solid black;
+    text-transform: uppercase;
 }
 
 .results-container {
