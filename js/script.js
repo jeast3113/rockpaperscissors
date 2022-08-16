@@ -95,6 +95,9 @@ function game() {
             computerSelection = getComputerChoice();
             playRound(playerSelection, computerSelection);
             if(playerScore === 5) {
+                buttons.forEach((button) => {
+                    button.style.display = "none";
+                });
                 winPara.style.display = "none";
                 scorePara.style.display = "none";
                 finalResultPara.textContent = `Player Wins ${playerScore} to ${cpuScore}!`;
@@ -106,6 +109,9 @@ function game() {
                     window.location.reload();
                 });
             } else if(cpuScore === 5){
+                buttons.forEach((button) => {
+                    button.style.display = "none";
+                });
                 winPara.style.display = "none";
                 scorePara.style.display = "none";
                 finalResultPara.textContent = `Computer Wins ${cpuScore} to ${playerScore}`;
