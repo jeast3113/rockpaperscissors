@@ -3,6 +3,8 @@ let playerScore = 0;
 let cpuScore = 0;
 let playerSelection;
 let buttons = document.querySelectorAll('button');
+let div = document.querySelector('div');
+let p = document.createElement('p');
 
 
 
@@ -15,25 +17,32 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {  
     if((playerSelection === 'rock' && computerSelection === 'rock') || (playerSelection === 'paper' && computerSelection === 'paper') || playerSelection === 'scissors' && computerSelection === 'scissors' ) {
-        return "It's a tie! Current score: " + playerScore + " to " + cpuScore;
+        p.textContent = `Player: ${playerScore} - Computer: ${cpuScore}`
+        div.appendChild(p);
     } else if(playerSelection === 'rock' && computerSelection === 'scissors') {
         playerScore+=1;
-        return "You win! Rock beats Scissors! Score: " + playerScore + " to " + cpuScore;
+        p.textContent = `Player: ${playerScore} - Computer: ${cpuScore}`
+        div.appendChild(p);
     } else if(playerSelection === 'scissors' && computerSelection === 'rock') {
         cpuScore+=1;
-        return "You lose! Rock beats Scissors! Score: " + playerScore + " to " + cpuScore;
+        p.textContent = `Player: ${playerScore} - Computer: ${cpuScore}`
+        div.appendChild(p);
     } else if(playerSelection === 'paper' && computerSelection === 'rock') {
         playerScore+=1;
-        return "You win! Paper beats Rock! Score: " + playerScore + " to " + cpuScore;
+        p.textContent = `Player: ${playerScore} - Computer: ${cpuScore}`
+        div.appendChild(p);
     } else if(playerSelection === 'rock' && computerSelection === 'paper') {
         cpuScore+=1;
-        return "You lose! Paper beats Rock! Score: " + playerScore + " to " + cpuScore;
+        p.textContent = `Player: ${playerScore} - Computer: ${cpuScore}`
+        div.appendChild(p);
     } else if(playerSelection === 'scissors' && computerSelection === 'paper') {
         playerScore+=1;
-        return "You win! Scissors beats Paper! Score: " + playerScore + " to " + cpuScore;
+        p.textContent = `Player: ${playerScore} - Computer: ${cpuScore}`
+        div.appendChild(p);
     } else if(playerSelection === 'paper' && computerSelection === 'scissors') {
         cpuScore+=1;
-        return "You lose! Scissors beats Paper! Score: " + playerScore + " to " + cpuScore;
+        p.textContent = `Player: ${playerScore} - Computer: ${cpuScore}`
+        div.appendChild(p);
     }
 }
 
@@ -44,16 +53,16 @@ function game() {
         button.addEventListener('click', () => {
             playerSelection = button.textContent;
             computerSelection = getComputerChoice();
-            console.log(playRound(playerSelection, computerSelection));
+            playRound(playerSelection, computerSelection);
+            if(playerScore === 5) {
+                p.textContent = `Player Wins ${playerScore} to ${cpuScore}!`;
+                div.appendChild(p);
+            } else if(cpuScore === 5){
+                p.textContent = `Computer Wins ${cpuScore} to ${playerScore}`;
+                div.appendChild(p);
+            }
         });
     });
-    // if(playerScore > cpuScore) {
-    //     return `Player Wins ${playerScore} to ${cpuScore}!`;
-    // } else if(playerScore < cpuScore){
-    //     return `Computer Wins ${cpuScore} to ${playerScore}`;
-    // } else {
-    //     return `It's a tie! ${playerScore} to ${cpuScore}`;
-    // }
 }
 
-console.log(game());
+game();
