@@ -2,3 +2,23 @@
     margin: 0;
     padding: 0;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 35%;
+}
+
+.btn {
+    padding: 12px;
+    margin: 15px;
+    background-color: inherit;
+    border: 2px solid black;
+}
+
