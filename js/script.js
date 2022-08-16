@@ -7,6 +7,24 @@ let btnContainerDiv = document.querySelector('.button-container');
 let resultsContainerDiv = document.querySelector('.results-container')
 let scorePara = document.createElement('p');
 let finalResultPara = document.createElement('p');
+let playGameBtn = document.createElement('button')
+
+function beforeGameStart() {
+    // create a function hides the game buttons and
+    // shows a button once clicked starts the game() fucntion
+    buttons.forEach((button) => {
+        button.style.display = "none";
+    });
+    playGameBtn.classList.add('btn');
+    playGameBtn.textContent = "play game?";
+    btnContainerDiv.appendChild(playGameBtn);
+    playGameBtn.addEventListener('click', () => {
+        playGameBtn.style.display = "none";
+        game();
+    })
+}
+
+beforeGameStart();
 
 
 
@@ -51,7 +69,9 @@ function playRound(playerSelection, computerSelection) {
 // Create a function that plays 5 rounds, keeps score between the player and the computer
 // and determines a winner at the end of the game
 function game() {
+
     buttons.forEach((button) => {
+        button.style.display = "block";
         button.addEventListener('click', () => {
             playerSelection = button.textContent;
             computerSelection = getComputerChoice();
@@ -69,4 +89,3 @@ function game() {
     });
 }
 
-game();
