@@ -6,6 +6,7 @@ let buttons = document.querySelectorAll('.btn');
 let btnContainerDiv = document.querySelector('.button-container');
 let resultsContainerDiv = document.querySelector('.results-container')
 let scorePara = document.createElement('p');
+let winPara = document.createElement('p');
 let finalResultPara = document.createElement('p');
 let playGameBtn = document.createElement('button')
 
@@ -37,39 +38,52 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {  
     if((playerSelection === 'rock' && computerSelection === 'rock') || (playerSelection === 'paper' && computerSelection === 'paper') || playerSelection === 'scissors' && computerSelection === 'scissors' ) {
-        scorePara.textContent = `Player: ${playerScore} | Computer: ${cpuScore}`
-        resultsContainerDiv.appendChild(scorePara);
+        winPara.textContent = `Both Player and Computer chose ${playerSelection}!`;
+        scorePara.textContent = `Player: ${playerScore} | Computer: ${cpuScore}`;
+        resultsContainerDiv.appendChild(winPara);
+        winPara.appendChild(scorePara);
     } else if(playerSelection === 'rock' && computerSelection === 'scissors') {
         playerScore+=1;
-        scorePara.textContent = `Player: ${playerScore} | Computer: ${cpuScore}`
-        resultsContainerDiv.appendChild(scorePara);
+        winPara.textContent = `Player Wins this round!`;
+        scorePara.textContent = `Player: ${playerScore} | Computer: ${cpuScore}`;
+        resultsContainerDiv.appendChild(winPara);
+        winPara.appendChild(scorePara);
     } else if(playerSelection === 'scissors' && computerSelection === 'rock') {
         cpuScore+=1;
-        scorePara.textContent = `Player: ${playerScore} | Computer: ${cpuScore}`
-        resultsContainerDiv.appendChild(scorePara);
+        winPara.textContent = `Computer Wins this round!`;
+        scorePara.textContent = `Player: ${playerScore} | Computer: ${cpuScore}`;
+        resultsContainerDiv.appendChild(winPara);
+        winPara.appendChild(scorePara);
     } else if(playerSelection === 'paper' && computerSelection === 'rock') {
         playerScore+=1;
-        scorePara.textContent = `Player: ${playerScore} | Computer: ${cpuScore}`
-        resultsContainerDiv.appendChild(scorePara);
+        winPara.textContent = `Player Wins this round!`;
+        scorePara.textContent = `Player: ${playerScore} | Computer: ${cpuScore}`;
+        resultsContainerDiv.appendChild(winPara);
+        winPara.appendChild(scorePara);
     } else if(playerSelection === 'rock' && computerSelection === 'paper') {
         cpuScore+=1;
-        scorePara.textContent = `Player: ${playerScore} | Computer: ${cpuScore}`
-        resultsContainerDiv.appendChild(scorePara);
+        winPara.textContent = `Computer Wins this round!`;
+        scorePara.textContent = `Player: ${playerScore} | Computer: ${cpuScore}`;
+        resultsContainerDiv.appendChild(winPara);
+        winPara.appendChild(scorePara);
     } else if(playerSelection === 'scissors' && computerSelection === 'paper') {
         playerScore+=1;
-        scorePara.textContent = `Player: ${playerScore} | Computer: ${cpuScore}`
-        resultsContainerDiv.appendChild(scorePara);
+        winPara.textContent = `Player Wins this round!`;
+        scorePara.textContent = `Player: ${playerScore} | Computer: ${cpuScore}`;
+        resultsContainerDiv.appendChild(winPara);
+        winPara.appendChild(scorePara);
     } else if(playerSelection === 'paper' && computerSelection === 'scissors') {
         cpuScore+=1;
-        scorePara.textContent = `Player: ${playerScore} | Computer: ${cpuScore}`
-        resultsContainerDiv.appendChild(scorePara);
+        winPara.textContent = `Computer Wins this round!`;
+        scorePara.textContent = `Player: ${playerScore} | Computer: ${cpuScore}`;
+        resultsContainerDiv.appendChild(winPara);
+        winPara.appendChild(scorePara);
     }
 }
 
 // Create a function that plays 5 rounds, keeps score between the player and the computer
 // and determines a winner at the end of the game
 function game() {
-
     buttons.forEach((button) => {
         button.style.display = "block";
         button.addEventListener('click', () => {
@@ -77,12 +91,16 @@ function game() {
             computerSelection = getComputerChoice();
             playRound(playerSelection, computerSelection);
             if(playerScore === 5) {
+                winPara.style.display = "none";
+                scorePara.style.display = "none";
                 finalResultPara.textContent = `Player Wins ${playerScore} to ${cpuScore}!`;
-                resultsContainerDiv.removeChild(scorePara);
+                // resultsContainerDiv.removeChild(scorePara);
                 resultsContainerDiv.appendChild(finalResultPara);
             } else if(cpuScore === 5){
+                winPara.style.display = "none";
+                scorePara.style.display = "none";
                 finalResultPara.textContent = `Computer Wins ${cpuScore} to ${playerScore}`;
-                resultsContainerDiv.removeChild(scorePara);
+                // resultsContainerDiv.removeChild(scorePara);
                 resultsContainerDiv.appendChild(finalResultPara);
             }
         });
